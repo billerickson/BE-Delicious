@@ -1,0 +1,47 @@
+/* Site Header
+---------------------------------------------------------------------------------------------------- */
+
+.site-header {
+	background: #ddd;
+	position: relative;
+
+	.wrap {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+	}
+
+	#logo {
+		width: 20px;
+		height: 20px;
+		border: 0px solid blue;
+
+		.quadrant {
+			width: 50%;
+			height: 50%;
+			float: left
+		}
+	}
+
+	&__title {
+		font-weight: bold;
+		font-size: 1.4rem;
+		text-decoration: none;
+	}
+}
+
+
+/* Admin Bar
+--------------------------------------------- */
+
+@include media(">782px" ) {
+	.admin-bar .site-container {
+		padding-top: 32px;
+	}
+}
+
+@include media("<=782px") {
+	#wpadminbar {
+		display: none !important;
+	}
+}

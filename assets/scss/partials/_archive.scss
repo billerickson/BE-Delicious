@@ -1,0 +1,74 @@
+/* Post Listing
+--------------------------------------------- */
+
+.archive .site-main {
+	display: grid;
+	gap: var(--wp--custom--layout--block-gap);
+}
+
+.post-summary {
+
+	&--private {
+
+		&__title a {
+			color: #551A8B;
+		}
+	}
+
+	&__content {
+		display: grid;
+		gap: 8px;
+		padding-top: 12px;
+
+		& > * {
+			margin: 0;
+		}
+	}
+
+	.entry-category {
+		font-size: var(--wp--preset--font-size--tiny);
+
+		a {
+			text-decoration: none;
+		}
+	}
+
+	&__title {
+		font-size: var(--wp--preset--font-size--medium);
+		font-weight: 400;
+		margin: 0;
+	}
+
+	p {
+		margin: 0;
+		font-size: var(--wp--preset--font-size--small);
+	}
+
+	&__meta {
+		color: var(--wp--custom--color--neutral-400);
+
+		a {
+			color: #88a;
+		}
+	}
+
+	a {
+		text-decoration: none;
+
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+
+}
+
+/* Entry Navigation
+--------------------------------------------- */
+
+.archive-navigation {
+	margin: 0;
+
+	a {
+		text-decoration: none;
+	}
+}
