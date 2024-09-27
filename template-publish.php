@@ -9,7 +9,7 @@
  **/
 
 // Redirect people who can't publish content
-if ( ! is_user_logged_in() && current_user_can( 'publish_posts' ) ) {
+if ( ! ( is_user_logged_in() && current_user_can( 'publish_posts' ) ) ) {
 	wp_redirect( wp_login_url( get_permalink() ) );
 	exit;
 }
