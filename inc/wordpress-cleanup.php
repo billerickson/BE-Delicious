@@ -139,7 +139,7 @@ function be_archive_title_remove_prefix( $title ) {
 	}
 	return $title;
 }
-add_filter( 'get_the_archive_title', 'be_archive_title_remove_prefix' );
+//add_filter( 'get_the_archive_title', 'be_archive_title_remove_prefix' );
 
 /**
  * Use custom website as author url

@@ -3,15 +3,12 @@
 
 .archive-header {
 	background: var(--wp--preset--color--background);
-	padding: 24px 0 40px;
-}
-
-.archive-header .wrap {
-	max-width: var(--wp--custom--layout--wide);
+	padding: var(--wp--custom--layout--block-gap) 0;
 }
 
 .archive-header h1 {
-	margin-top: var(--wp--custom--layout--block-gap-large);
+	margin: 0;
+	font-size: var(--wp--preset--font-size--large);
 }
 
 .archive-description > *:first-child {
