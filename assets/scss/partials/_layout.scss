@@ -73,7 +73,7 @@ body.full-width-content {
 @include media("<medium") {
 
 	.sidebar-primary {
-		display: none;
+		margin-top: var(--wp--custom--layout--block-gap-large);
 	}
 }
 
