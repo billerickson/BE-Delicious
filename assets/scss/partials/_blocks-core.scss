@@ -10,6 +10,17 @@ h6 {
 	margin-block-end: var(--wp--style--block-gap);
 }
 
+/* Link
+--------------------------------------------- */
+
+a {
+	text-decoration: none;
+
+	&:not(.wp-element-button):hover {
+		text-decoration: underline;
+	}
+}
+
 /* Image
 --------------------------------------------- */
 

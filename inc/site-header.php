@@ -9,6 +9,7 @@
  * @license      GPL-2.0+
  **/
 
+
 /**
  * Site Header
  */
@@ -20,8 +21,25 @@ function be_site_header() {
         <div class="quadrant" style="background:#aaa"></div>
     </div>';
 	echo '<a href="' . esc_url( home_url() ) . '" rel="home" class="site-header__title" aria-label="' . esc_attr( get_bloginfo( 'name' ) ) . ' Home">' . get_bloginfo( 'name' ) . '</a>';
+
+	if ( has_nav_menu( 'primary' ) ) {
+		wp_nav_menu( array( 'theme_location' => 'primary', 'menu_id' => 'primary-menu', 'container_class' => 'nav-primary', 'container' => 'nav' ) );
+	}
 }
 add_action( 'tha_header_bottom', 'be_site_header', 11 );
+
+/**
+ * Register nav menus
+ */
+function be_register_menus() {
+	register_nav_menus(
+		[
+			'primary' => esc_html__( 'Primary Navigation Menu', 'bestarter_textdomain' ),
+		]
+	);
+
+}
+add_action( 'after_setup_theme', 'be_register_menus' );
 
 /**
  * Mobile menu toggle

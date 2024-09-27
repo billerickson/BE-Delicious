@@ -30,6 +30,21 @@
 	}
 }
 
+.nav-primary {
+	font-size: var(--wp--preset--font-size--tiny);
+	margin-left: auto;
+
+	ul {
+		padding: 0;
+		display: flex;
+		gap: 16px;
+	}
+
+	li {
+		list-style-type: none;
+	}
+}
+
 
 /* Admin Bar
 --------------------------------------------- */
