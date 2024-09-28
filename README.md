@@ -1,6 +1,8 @@
 # BE Delicious
 A WordPress-based bookmarks manager like Del.icio.us
 
+This is a quickly developed MVP which is why it relies on ACF and WPForms for some functionality. I might revisit this in the future and build everything directly in the theme so there are no plugin dependencies, but I wanted to test & iterate on the functionality first.
+
 ## Setup
 
 1. Install the theme
