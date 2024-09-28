@@ -11,7 +11,7 @@
 	&--private {
 
 		.post-summary__title a {
-			color: #551A8B;
+			color: var(--wp--preset--color--secondary);
 		}
 	}
 
