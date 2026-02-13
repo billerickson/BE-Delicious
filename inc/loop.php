@@ -22,7 +22,7 @@ function be_default_loop() {
 			the_post();
 			tha_entry_before();
 			$partial = is_singular() ? 'content' : 'archive';
-			get_template_part( 'partials/content/' . $partial );
+			get_template_part( 'partials/content/' . $partial, get_post_type() );
 			tha_entry_after();
 		endwhile;
 

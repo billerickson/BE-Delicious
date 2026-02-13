@@ -155,3 +155,86 @@ function cwp_favicon() {
 add_action( 'wp_head', 'cwp_favicon', 100 );
 add_action( 'admin_head', 'cwp_favicon', 100 );
 add_filter( 'site_icon_meta_tags', '__return_empty_array' );
+
+/**
+ * Rename "Posts" post type to "Links"
+ */
+function cwp_change_post_labels( $labels ) {
+    $labels->name = 'Links';
+    $labels->singular_name = 'Link';
+    $labels->add_new = 'Add Link';
+    $labels->add_new_item = 'Add New Link';
+    $labels->edit_item = 'Edit Link';
+    $labels->new_item = 'New Link';
+    $labels->view_item = 'View Link';
+    $labels->view_items = 'View Links';
+    $labels->search_items = 'Search Links';
+    $labels->not_found = 'No Links found';
+    $labels->not_found_in_trash = 'No Links found in Trash';
+    $labels->all_items = 'All Links';
+    $labels->archives = 'Link Archives';
+    $labels->attributes = 'Link Attributes';
+    $labels->insert_into_item = 'Insert into Link';
+    $labels->uploaded_to_this_item = 'Uploaded to this Link';
+    $labels->filter_items_list = 'Filter Links list';
+    $labels->items_list_navigation = 'Links list navigation';
+    $labels->items_list = 'Links list';
+    $labels->menu_name = 'Links';
+    $labels->name_admin_bar = 'Link';
+
+	return $labels;
+}
+add_filter( 'post_type_labels_post', 'cwp_change_post_labels' );
+
+/**
+ * Register Notes Post Type
+ */
+function cwp_register_notes_cpt() {
+	$labels = array(
+		'name'               => 'Notes',
+		'singular_name'      => 'Note',
+		'add_new'            => 'Add New',
+		'add_new_item'       => 'Add New Note',
+		'edit_item'          => 'Edit Note',
+		'new_item'           => 'New Note',
+		'view_item'          => 'View Note',
+		'search_items'       => 'Search Notes',
+		'not_found'          => 'No Notes found',
+		'not_found_in_trash' => 'No Notes found in Trash',
+		'parent_item_colon'  => 'Parent Note:',
+		'menu_name'          => 'Notes',
+	);
+
+	$args = array(
+		'labels'              => $labels,
+		'hierarchical'        => false,
+		'supports'            => array( 'title', 'editor' ),
+		'public'              => true,
+		'show_ui'             => true,
+		'show_in_menu'        => true,
+		'show_in_rest'        => true,
+		'show_in_nav_menus'   => true,
+		'publicly_queryable'  => true,
+		'exclude_from_search' => false,
+		'has_archive'         => true,
+		'query_var'           => true,
+		'can_export'          => true,
+		'rewrite'             => array( 'slug' => 'note', 'with_front' => false ),
+		'menu_position'       => 5,
+		'taxonomies' => [ 'post_tag' ]
+	);
+
+	register_post_type( 'note', $args );
+
+}
+add_action( 'init', 'cwp_register_notes_cpt' );
+
+/**
+ * Include notes
+ */
+function cwp_main_query( $query ) {
+	if ( $query->is_main_query() && ! is_admin() && ( $query->is_home() || $query->is_archive() || $query->is_search() ) ) {
+		$query->set( 'post_type', [ 'post', 'note' ] );
+	}
+}
+add_action( 'pre_get_posts', 'cwp_main_query' );
