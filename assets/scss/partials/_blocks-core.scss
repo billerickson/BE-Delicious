@@ -21,6 +21,28 @@ a {
 	}
 }
 
+/* Quote
+--------------------------------------------- */
+
+blockquote {
+  border-left: 4px solid #111;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  font-size: 1.2rem;
+  font-style: italic;
+  background: #f9f9f9;
+  color: #333;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  font-style: normal;
+  color: #777;
+}
+
+
 /* Image
 --------------------------------------------- */
 
