@@ -32,6 +32,19 @@ require_once get_template_directory() . '/inc/wordpress-seo.php';
 include_once get_template_directory() . '/inc/wpforms.php';
 
 /**
+ * Keep remembered logins valid for one year.
+ *
+ * @param int  $length   Authentication cookie duration in seconds.
+ * @param int  $user_id  User ID.
+ * @param bool $remember Whether the user selected Remember Me.
+ * @return int
+ */
+function be_auth_cookie_expiration( $length, $user_id, $remember ) {
+	return $remember ? YEAR_IN_SECONDS : $length;
+}
+add_filter( 'auth_cookie_expiration', 'be_auth_cookie_expiration', 10, 3 );
+
+/**
  * Enqueue scripts and styles.
  */
 function be_scripts() {
